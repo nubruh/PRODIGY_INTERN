@@ -1,0 +1,95 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #ebd9b4;
+  margin: 0px;
+}
+
+@font-face{
+  font-family: primary;
+  font-weight: strong;
+  src: url(src/Lemon-Regular.ttf);
+}
+
+nav ul{
+  transform:skew(30deg,0) translateX(1rem) ; /*un-skew*/
+  
+  list-style: none;
+  display: flex;
+  flex-direction: horizontal;
+  justify-content: space-evenly;
+  margin: 1 auto;
+}
+nav ul li a{
+  color: #2D9596;
+  font-family: primary;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+nav ul li a:hover{
+  color: #106e6f;
+}
+
+#box{
+  content:'';
+  background-color: #ece3ce;
+  top: 0;
+  height: 3.8rem;
+  width: 100%;
+  box-shadow: 0 1rem 1rem rgba(0,0,0,0.1),
+    0 .4rem .4rem rgba(0,0,0,0.1);
+}
+
+#navi {
+  --color1: #cdab8f50;
+  --color2: #cdab8f50;
+  cursor: pointer;
+  
+  position: fixed;
+  top: 0;
+  width: 100%;
+  isolation: isolate;
+  transform: skew(-30deg,0) translateX(-1rem); /*parent skew*/
+
+  --s: 0;
+  --x: 0;
+
+}
+
+#navi::after {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  background: var(--color1);
+  inset: 0;
+
+  scale: 0 1;
+  
+  transform-origin: left;
+  transition: scale 450ms;
+}
+
+#navi::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: var(--color2);
+  inset: 0;
+
+  scale: 0 1;
+  transform-origin: left;
+
+  transition: scale 800ms;
+}
+#navi:hover::before,
+#navi:hover::after,
+#navi:focus-visible::after {
+  scale: var(--s) 1;
+}
+
+/*green box to just slide koribo lage left ole
+pora nai hoi gol lol*/
